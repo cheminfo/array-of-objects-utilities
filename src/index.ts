@@ -1,7 +1,4 @@
-/**
- * My module
- * @returns A very important number
- */
-export function myModule(): number {
-  return 42;
-}
+export * from './flattenToJPaths.ts';
+export * from './getDistinctJPaths.js';
+export * from './objectArrayToText.js';
+export type { GetJPathsOptions } from 'get-jpaths';

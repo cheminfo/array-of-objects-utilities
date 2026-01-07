@@ -16,10 +16,46 @@ npm install array-of-objects-utilities
 ## Usage
 
 ```js
-import { myModule } from 'array-of-objects-utilities';
+import { flattenToJPaths, objectArrayToText } from 'array-of-objects-utilities';
 
-const result = myModule(args);
-// result is ...
+const data = [
+  {
+    e: 5,
+  },
+  {
+    a: {
+      b: 'aB',
+      c: 'cd',
+    },
+  },
+  {
+    a: {
+      b: 'c',
+      d: 4,
+    },
+  },
+  2,
+];
+
+const flattened = flattenToJPaths(data, {
+  modifiers: {
+    'a.b': (value) => (typeof value === 'string' ? value.toUpperCase() : value),
+  },
+});
+
+const text = objectArrayToText(flattened, {
+  delimiter: ';',
+  headerMapping: { '': 'root', 'a.b': 'AB field' },
+});
+
+console.log(text);
+/*
+e;AB field;a.c;a.d;root
+5;;;;
+;aB;cd;;
+;c;;4;
+;;;;2
+*/
 ```
 
 ## License
