@@ -51,4 +51,14 @@ test('full example', async () => {
   });
 
   expect(result).toMatchSnapshot();
+
+  const text = objectArrayToText(result, {
+    delimiter: '\r',
+    eol: '\r\n',
+    headerMapping: {
+      'data.noStereoOCL': 'SMILES',
+    },
+  });
+
+  expect(text).toMatchSnapshot();
 });
