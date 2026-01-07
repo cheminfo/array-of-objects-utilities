@@ -1,6 +1,6 @@
 {
   "name": "array-of-objects-utilities",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "Utilities to reduce depths of objects and convert to text",
   "keywords": [],
